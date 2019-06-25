@@ -1,0 +1,66 @@
+<div class="container">
+  <div *ngIf="cat$ | async as cat">
+    <form #form (ngSubmit)="addNewCat(form.valid, cat)">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Cat Photo"
+          name="photo_url"
+          id="photo_url"
+          class="form-control"
+          [(ngModel)]="cat.photo_url"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Cat Name"
+          name="name"
+          id="name"
+          class="form-control"
+          [(ngModel)]="cat.name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          name="age"
+          id="age"
+          class="form-control"
+          placeholder="Age"
+          [(ngModel)]="cat.age"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <select
+          name="genre"
+          id="genre"
+          class="form-control"
+          [(ngModel)]="cat.genre"
+          required
+        >
+          <option value="">Genre</option>
+          <option value="F">F</option>
+          <option value="M">M</option>
+        </select>
+      </div>
+      <div class="form-group form-check">
+        <input
+          type="checkbox"
+          name="isAlive"
+          id="isAlive"
+          class="form-check-input"
+          [(ngModel)]="cat.isAlive"
+          required
+        />
+        <label class="form-check-label" for="isAlive">Is Alive?</label>
+      </div>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+  <hr>
+  <app-cat-list></app-cat-list>
+</div>
