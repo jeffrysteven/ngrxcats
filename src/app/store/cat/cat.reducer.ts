@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './cat.state';
-import { GetCat, AddCat, CatAdded } from './cat.actions';
+import { GetCat, AddCat } from './cat.actions';
 
 export const reducer = createReducer(
   initialState,

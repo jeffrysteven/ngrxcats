@@ -13,19 +13,16 @@ export class CatListEffects {
   catAdded$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CatAdded),
-      mergeMap(cat => {
-        return this.catService.addCat(cat).pipe(map(() => GetCat()));
-      })
+      map(() => GetCat())
     )
   );
 
   loadCats$ = createEffect(() =>
     this.actions$.pipe(
       ofType(LoadCats),
-      switchMap(() => this.catService.getCats().pipe(map((cats: any) => {
-        console.log('effect', cats);
-        return CatsLoaded(cats);
-      })))
+      switchMap(() =>
+        this.catService.getCats().pipe(map((cats: any) => CatsLoaded(cats)))
+      )
     )
   );
 }

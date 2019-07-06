@@ -17,9 +17,8 @@ export class CatService {
   }
 
   getCats() {
-    return this.http
-      .get(API_URL, {
-        headers: { 'X-Parse-Application-Id': 'app' }
-      }).pipe(map(({ results }: any) => results));
+    return this.http.get(API_URL, {
+      headers: { 'X-Parse-Application-Id': 'app' }
+    });
   }
 }

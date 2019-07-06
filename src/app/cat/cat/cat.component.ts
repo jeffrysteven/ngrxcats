@@ -23,10 +23,6 @@ export class CatComponent implements OnInit {
     this.store.dispatch(GetCat());
   }
 
-  addAYear(age) {
-    this.store.dispatch(AddAYear({ age: age + 1 }));
-  }
-
   addNewCat(valid, cat) {
     this.store.dispatch(AddCat(cat));
   }
